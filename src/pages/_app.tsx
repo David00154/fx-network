@@ -7,6 +7,7 @@ import SmoothScroll from "../components/SmoothScroll";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
+    // localStorage.setItem("chakra-ui-color-mode", "dark");
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("/sw.js").then(
@@ -23,8 +24,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       });
     }
   }, []);
-  const getLayout = Component["getLayout"] ?? ((page) => page);
-  return getLayout(
+  // const getLayout = Component["getLayout"] ?? ((page) => page);
+  return (
     <>
       <Head>
         <title>

@@ -17,7 +17,9 @@ interface FeatureProps {
 
 const Feature = ({ title, text, icon }: FeatureProps) => {
   return (
-    <Stack textAlign="center">
+    <Stack
+    // textAlign="center"
+    >
       <Flex
         w={20}
         h={20}
@@ -27,8 +29,8 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
         rounded={"full"}
         bg={"gray.100"}
         mb={1}
-        verticalAlign="center"
-        alignSelf="center"
+        // verticalAlign="center"
+        // alignSelf="center"
       >
         {icon}
       </Flex>
