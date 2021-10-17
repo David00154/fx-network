@@ -151,20 +151,21 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
                   console.log("Successful");
                 } else if (error) {
                   // errors.push({msg: error.message})
-                  setError(
-                    error.message ==
-                      "Thanks for registering, now check your email to complete the process"
-                      ? "User already exist"
-                      : error.message
-                  );
+
                   console.log("Error 1: ", error.message);
                   setSubmitting(false);
+                  setError(error.message);
                 }
               } else if (error) {
                 // console.log(error)
-                setError(error.message);
                 console.log("Error 2: ", error.message);
                 setSubmitting(false);
+                setError(
+                  error.message ===
+                    "Thanks for registering, now check your email to complete the process"
+                    ? "User already exist"
+                    : error.message
+                );
               }
             })
             .catch((e) => {
