@@ -79,7 +79,7 @@ const MenuLinks = ({ isOpen }) => {
         >
           Home
         </MenuItem>
-        <MenuItem
+        {/* <MenuItem
           textTransform="uppercase"
           fontWeight="600"
           fontSize="13.3px"
@@ -102,7 +102,7 @@ const MenuLinks = ({ isOpen }) => {
           to="/#contact"
         >
           Contact{" "}
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem
           textTransform="uppercase"
           fontWeight="600"
@@ -110,6 +110,14 @@ const MenuLinks = ({ isOpen }) => {
           to="/dashboard"
         >
           Dashboard{" "}
+        </MenuItem>
+        <MenuItem
+          textTransform="uppercase"
+          fontWeight="600"
+          fontSize="13.3px"
+          to="/auth/login"
+        >
+          Sign in{" "}
         </MenuItem>
         <MenuItem to="/auth/signup" isLast>
           <Button

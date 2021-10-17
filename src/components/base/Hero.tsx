@@ -14,6 +14,8 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
+import ScrollAnimation from "react-animate-on-scroll"
+
 export default function Hero() {
   return (
     <Container maxW={"7xl"}>
@@ -23,6 +25,7 @@ export default function Hero() {
         py={{ base: 20, md: 28 }}
         direction={{ base: "column", md: "row" }}
       >
+      {/* <ScrollAnimation animateIn="fadeIn"> */}
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
           <Heading
             lineHeight={1.1}
@@ -60,6 +63,8 @@ export default function Hero() {
             direction={{ base: "column", sm: "row" }}
           >
             <Button
+            as="a"
+            href="/auth/signup"
               rounded={"full"}
               size={"lg"}
               fontWeight={"normal"}
@@ -81,6 +86,7 @@ export default function Hero() {
             </Button>
           </Stack>
         </Stack>
+        {/* </ScrollAnimation> */}
         <Flex
           flex={1}
           justify={"center"}

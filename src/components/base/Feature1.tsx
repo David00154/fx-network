@@ -75,6 +75,6 @@ const FeatureItems: Array<FeatureProps> = [
   {
     icon: <Icon as={FcPrivacy} w={10} h={10} />,
     title: "Privacy",
-    text: `All private information remains private. ETORO CRYPTO TRADE never shares Private information to any third party`,
+    text: `All private information remains private. Fx Network never shares Private information to any third party`,
   },
 ];

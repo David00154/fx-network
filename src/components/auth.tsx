@@ -68,7 +68,8 @@ export const Link = (props: HTMLChakraProps<"a">) => (
     {...props}
   />
 );
-export const PasswordField = (props, ref) => {
+export const PasswordField = React.forwardRef((props, ref) => {
+  
   const { isOpen, onToggle } = useDisclosure();
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -121,6 +122,6 @@ export const PasswordField = (props, ref) => {
       </InputGroup>
     </FormControl>
   );
-};
+});
 
 PasswordField.displayName = "PasswordField";
