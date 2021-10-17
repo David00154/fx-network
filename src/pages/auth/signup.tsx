@@ -81,7 +81,7 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
   const [email, setEmail] = React.useState("");
   const [success, setSuccess] = React.useState("");
   const [submitting, setSubmitting] = React.useState(false);
-
+  console.log(password)
   const [error, setError] = React.useState("");
 
   return (
@@ -89,6 +89,12 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
       onSubmit={(e) => {
         setError("")
         setSubmitting(true);
+        // setPassword("")
+        // setEmail("")
+        // setName("")
+        // setNumber("")
+        // setRepeatPassword("")
+        
         e.preventDefault();
         if (name === "") {
           setError("The name field can not be blank");
@@ -113,6 +119,12 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
         } else {
           setError("");
           setSubmitting(true);
+          setPassword("")
+          setEmail("")
+          setName("")
+          setNumber("")
+          setRepeatPassword("")
+          
           supabase.auth
             .signUp({
               email: email,
@@ -122,6 +134,12 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
               // console.log(user)
               // res.show('routes/signin', {layout: 'layouts/base'})
               setSubmitting(true);
+              setPassword("")
+              setEmail("")
+              setName("")
+              setNumber("")
+              setRepeatPassword("")
+              
               if (user) {
                 // console.log(user)
                 const { data, error } = await supabase.from("Profile").insert({
