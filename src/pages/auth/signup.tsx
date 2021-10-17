@@ -16,6 +16,7 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  CloseButton,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
@@ -86,6 +87,7 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
   return (
     <chakra.form
       onSubmit={(e) => {
+        setError("")
         setSubmitting(true);
         e.preventDefault();
         if (name === "") {
@@ -162,7 +164,7 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
                 setSubmitting(false);
                 setError(
                   error.message ===
-                    "Thanks for registering, now check your email to complete the process"
+                    "Thanks for registering, now check your email to complete the process."
                     ? "User already exist"
                     : error.message
                 );
