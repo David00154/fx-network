@@ -37,7 +37,7 @@ const Index = () => {
       setTimeout(() => {
         setPopUp(false);
       }, 9000);
-      console.log("faked");
+      // console.log("faked");
     }, 17555);
   }, []);
 
@@ -67,13 +67,13 @@ const Faker = ({ text }) => {
         left: "0",
         position: "fixed",
         // color: "black",
-        padding: "13px",
+        padding: "17px",
         margin: "2rem 1rem",
         // --tw-bg-opacity: 1
         // backgroundColor: "#e8e8e8",
         fontStyle: "normal",
         // fontWeight: {500},
-        fontSize: "14px",
+        // fontSize: "14px",
         // borderLeftWidth: "4px",
         // borderColor: "#cc1616",
         // borderLeftStyle: "solid",

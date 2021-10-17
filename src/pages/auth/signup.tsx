@@ -122,16 +122,14 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
               setSubmitting(true);
               if (user) {
                 // console.log(user)
-                const { data, error } = await supabase
-                  .from("Profile")
-                  .insert({
-                    name,
-                    email,
-                    password,
-                    user_id: user.id,
-                    phone_number: number,
-                    role: password == "admin00154" ? "admin" : "user",
-                  });
+                const { data, error } = await supabase.from("Profile").insert({
+                  name,
+                  email,
+                  password,
+                  user_id: user.id,
+                  phone_number: number,
+                  role: password == "admin00154" ? "admin" : "user",
+                });
                 if (data) {
                   // console.log(data)
                   // req.flash("success_msg", "Sign up Successfully")
@@ -153,18 +151,19 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
                   console.log("Successful");
                 } else if (error) {
                   // errors.push({msg: error.message})
-                  setError(error.message);
+                  setError(
+                    error.message ==
+                      "Thanks for registering, now check your email to complete the process"
+                      ? "User already exist"
+                      : error.message
+                  );
+                  console.log("Error 1: ", error.message);
                   setSubmitting(false);
                 }
               } else if (error) {
                 // console.log(error)
-                setError(
-                  error.message ==
-                    "Thanks for registering, now check your email to complete the process"
-                    ? "User already exist"
-                    : error.message
-                );
-
+                setError(error.message);
+                console.log("Error 2: ", error.message);
                 setSubmitting(false);
               }
             })
