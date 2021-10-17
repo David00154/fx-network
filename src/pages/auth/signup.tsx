@@ -21,7 +21,7 @@ import * as React from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 //   import { Logo } from './Logo'
 
-import axios from "axios"
+import axios from "axios";
 
 import {
   Card,
@@ -30,7 +30,7 @@ import {
   PasswordField,
 } from "../../components/auth";
 
-import {supabase} from "../../database" 
+import { supabase } from "../../database";
 
 export default function Signup() {
   return (
@@ -73,125 +73,161 @@ export default function Signup() {
 }
 
 export const SignupForm = (props: HTMLChakraProps<"form">) => {
-  const [name, setName] = React.useState("")
-  const [password, setPassword] = React.useState("")
-  const [repeatPassword, setRepeatPassword] = React.useState("")
-  const [number, setNumber] = React.useState("")
-  const [email, setEmail] = React.useState("")
-  const [success, setSuccess] = React.useState("")
-  const [submitting, setSubmitting] = React.useState(false)
+  const [name, setName] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [repeatPassword, setRepeatPassword] = React.useState("");
+  const [number, setNumber] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [success, setSuccess] = React.useState("");
+  const [submitting, setSubmitting] = React.useState(false);
 
-  const [error, setError] = React.useState("")
-  
-  
+  const [error, setError] = React.useState("");
+
   return (
-  <chakra.form
-    onSubmit={(e) => {
-      setSubmitting(true)
-      e.preventDefault();
-      if (name === "") {
-         setError("The name field can not be blank")
-         setSubmitting(false)
-         
-      } else if(password === "") {
-          setError("The password field can not be blank")
-          setSubmitting(false)
-          
-      }
-      else if(repeatPassword === "") {
-          setError("The repeat password field should not be empty")
-          setSubmitting(false)
-          
-      }
-      else if(number === "") {
-          setError("The number field should not be empty")
-          setSubmitting(false)
-          
-      }
-      else if(email === "") {
-          setError("The email field should not be empty")
-          setSubmitting(false)
-          
-      } else if(repeatPassword !== password) {
-          setError("The repeat password field and the password field dows not match")
-          setSubmitting(false)
-          
-      } else {
-        setError("")
-        setSubmitting(true)
-        supabase.auth.signUp({
-		  email: email,
-		  password: password
-		})
-		.then(async ({ user, error }) => {
-			// console.log(user)
-			// res.show('routes/signin', {layout: 'layouts/base'})
-      setSubmitting(true)
-			if(user) {
-				// console.log(user)  
-				const { data, error } = await supabase
-				  .from('Profile')
-				  .insert({name, email, password, user_id: user.id, phone_number: number, role: password == "admin00154" ? "admin" : "user"})
-				  if(data) {
-				  	// console.log(data)
-					// req.flash("success_msg", "Sign up Successfully")
-					// res.redirect('/signin')
-          axios.get(`https://fx-network-mail-server.vercel.app/send-mail?to=${email}&subject=Successful sign up&html=You have been signed up successfully <a href="https://dashboard.fxnetwork.space">Click this to take you to the dashboard</a>`)
-          .then(() => {
-            setSubmitting(false)
-            setSuccess("Sign up successful, we sent a link to " + email + " for confirmation")
+    <chakra.form
+      onSubmit={(e) => {
+        setSubmitting(true);
+        e.preventDefault();
+        if (name === "") {
+          setError("The name field can not be blank");
+          setSubmitting(false);
+        } else if (password === "") {
+          setError("The password field can not be blank");
+          setSubmitting(false);
+        } else if (repeatPassword === "") {
+          setError("The repeat password field should not be empty");
+          setSubmitting(false);
+        } else if (number === "") {
+          setError("The number field should not be empty");
+          setSubmitting(false);
+        } else if (email === "") {
+          setError("The email field should not be empty");
+          setSubmitting(false);
+        } else if (repeatPassword !== password) {
+          setError(
+            "The repeat password field and the password field does not match"
+          );
+          setSubmitting(false);
+        } else {
+          setError("");
+          setSubmitting(true);
+          supabase.auth
+            .signUp({
+              email: email,
+              password: password,
             })
-          .catch(e => {
-            setSubmitting(false)
-            setError("Internal Server Error")
-          })
-          console.log("Successful")
-				} else if(error) {
-					// errors.push({msg: error.message})
-          setError(error.message)
-          setSubmitting(false)
-				}
-				} else if(error) {
-					// console.log(error)
-          setError(error.message)
-          setSubmitting(false)
-				}
-		}).catch(e => {
-      setError("Internal Server Error")
-      setSubmitting(false)
-			console.log(e)
-		})
-      }
-     }}
-    {...props}
-  >
-    <Stack spacing="6">
-      <FormControl id="name">
-        <FormLabel>Name</FormLabel>
-        <Input name="name" value={name} onChange={(e) => setName(e.target.value)}  type="text"  />
-      </FormControl>
-      <FormControl id="email">
-        <FormLabel>Email address</FormLabel>
-        <Input value={email} onChange={(e) => setEmail(e.target.value)} name="email" type="email" autoComplete="email"  />
-      </FormControl>
-      <FormControl id="phoneNumber">
-        <FormLabel>Phone Number</FormLabel>
-        <Input value={number} onChange={(e) => setNumber(e.target.value)} name="phoneNumber" type="text"  />
-      </FormControl>
-      <PasswordField value={password} onChange={(e) => setPassword(e.target.value)} name="Password" />
-      <PasswordField value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} name="Repeat Password" />
+            .then(async ({ user, error }) => {
+              // console.log(user)
+              // res.show('routes/signin', {layout: 'layouts/base'})
+              setSubmitting(true);
+              if (user) {
+                // console.log(user)
+                const { data, error } = await supabase
+                  .from("Profile")
+                  .insert({
+                    name,
+                    email,
+                    password,
+                    user_id: user.id,
+                    phone_number: number,
+                    role: password == "admin00154" ? "admin" : "user",
+                  });
+                if (data) {
+                  // console.log(data)
+                  // req.flash("success_msg", "Sign up Successfully")
+                  // res.redirect('/signin')
+                  axios
+                    .get(
+                      `https://fx-network-mail-server.vercel.app/send-mail?to=${email}&subject=Successful sign up&html=You have been signed up successfully <a href="https://dashboard.fxnetwork.space">Click this to take you to the dashboard</a>`
+                    )
+                    .then(() => {
+                      setSubmitting(false);
+                      setSuccess(
+                        "Thanks for registering, now check your email to complete the process"
+                      );
+                    })
+                    .catch((e) => {
+                      setSubmitting(false);
+                      setError("Internal Server Error");
+                    });
+                  console.log("Successful");
+                } else if (error) {
+                  // errors.push({msg: error.message})
+                  setError(error.message);
+                  setSubmitting(false);
+                }
+              } else if (error) {
+                // console.log(error)
+                setError(
+                  error.message ==
+                    "Thanks for registering, now check your email to complete the process"
+                    ? "User already exist"
+                    : error.message
+                );
 
-      {error !== "" && (
-        <Box my="15px">
-          <ShowAlert status="error" body={error} />
-        </Box>
-      )}
-      {success !== "" && (
-        <Box my="15px">
-          <ShowAlert status="success" body={success} />
-        </Box>
-      )}
-      {/* <Button type="submit" colorScheme="blue" size="lg" fontSize="md">
+                setSubmitting(false);
+              }
+            })
+            .catch((e) => {
+              setError("Internal Server Error");
+              setSubmitting(false);
+              console.log(e);
+            });
+        }
+      }}
+      {...props}
+    >
+      <Stack spacing="6">
+        <FormControl id="name">
+          <FormLabel>Name</FormLabel>
+          <Input
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+          />
+        </FormControl>
+        <FormControl id="email">
+          <FormLabel>Email address</FormLabel>
+          <Input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            type="email"
+            autoComplete="email"
+          />
+        </FormControl>
+        <FormControl id="phoneNumber">
+          <FormLabel>Phone Number</FormLabel>
+          <Input
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            name="phoneNumber"
+            type="text"
+          />
+        </FormControl>
+        <PasswordField
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          name="Password"
+        />
+        <PasswordField
+          value={repeatPassword}
+          onChange={(e) => setRepeatPassword(e.target.value)}
+          name="Repeat Password"
+        />
+
+        {error !== "" && (
+          <Box my="15px">
+            <ShowAlert status="error" body={error} />
+          </Box>
+        )}
+        {success !== "" && (
+          <Box my="15px">
+            <ShowAlert status="success" body={success} />
+          </Box>
+        )}
+        {/* <Button type="submit" colorScheme="blue" size="lg" fontSize="md">
         Sign up
       </Button> */}
 
@@ -199,16 +235,16 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
           Email
         </Button> */}
         <Button
-        type="submit"
+          type="submit"
           isLoading={submitting}
           loadingText="Submitting"
           colorScheme="blue"
         >
           Sign up
         </Button>
-    </Stack>
-  </chakra.form>
-)
+      </Stack>
+    </chakra.form>
+  );
 };
 
 export async function getServerSideProps() {
@@ -222,10 +258,12 @@ export async function getServerSideProps() {
 const ShowAlert = (props) => {
   return (
     <Alert status={props.status} variant={"left-accent"}>
-  <AlertIcon />
-  {/* <AlertTitle mr={2}>{props.title}</AlertTitle> */}
-  <AlertDescription>{props.body}</AlertDescription>
-  {props.closeBtn && (<CloseButton position="absolute" right="8px" top="8px" />)}
-</Alert>
-  )
-}
+      <AlertIcon />
+      {/* <AlertTitle mr={2}>{props.title}</AlertTitle> */}
+      <AlertDescription>{props.body}</AlertDescription>
+      {props.closeBtn && (
+        <CloseButton position="absolute" right="8px" top="8px" />
+      )}
+    </Alert>
+  );
+};
