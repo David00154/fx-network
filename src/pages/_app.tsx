@@ -8,8 +8,8 @@ import SmoothScroll from "../components/SmoothScroll";
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // localStorage.setItem("chakra-ui-color-mode", "dark");
-    console.log(AOS)
-    AOS.init();
+    // console.log(AOS)
+    // AOS.init();
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("/sw.js").then(
@@ -30,8 +30,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <link
+          href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          rel="stylesheet"
+        />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <title>
           {pageProps.title ? pageProps.title + "  |" : ""} Fx Network
         </title>
@@ -43,12 +46,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ChakraProvider resetCSS theme={theme}>
         {/* <SmoothScroll> */}
-          <div style={{width: "100%"}}>
-            <Component {...pageProps} />
-          </div>
+        <div style={{ width: "100%" }}>
+          <Component {...pageProps} />
+        </div>
         {/* </SmoothScroll> */}
       </ChakraProvider>
-        {/* <body defer dangerouslySetInnerHTML={{__html: `
+      {/* <body defer dangerouslySetInnerHTML={{__html: `
         console.log(AOS)
           AOS.init();
         `}}>

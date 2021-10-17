@@ -69,7 +69,6 @@ export const Link = (props: HTMLChakraProps<"a">) => (
   />
 );
 export const PasswordField = React.forwardRef((props, ref) => {
-  
   const { isOpen, onToggle } = useDisclosure();
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -87,9 +86,9 @@ export const PasswordField = React.forwardRef((props, ref) => {
     }
   };
   return (
-    <FormControl id={props.name.toLocaleLowerCase()}>
+    <FormControl id={props["name"].toLocaleLowerCase()}>
       <Flex justify="space-between">
-        <FormLabel>{props.name}</FormLabel>
+        <FormLabel>{props["name"]}</FormLabel>
         {props["forgotField"] && (
           <Box
             as="a"
@@ -113,7 +112,7 @@ export const PasswordField = React.forwardRef((props, ref) => {
         </InputRightElement>
         <Input
           ref={mergeRef}
-          name={props.name.toLocaleLowerCase()}
+          name={props["name"].toLocaleLowerCase()}
           type={isOpen ? "text" : "password"}
           autoComplete="current-password"
           required

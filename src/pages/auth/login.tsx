@@ -28,7 +28,7 @@ import {
   PasswordField,
 } from "../../components/auth";
 
-import {supabase} from "../../database" 
+import { supabase } from "../../database";
 
 export default function Login() {
   return (
@@ -67,77 +67,90 @@ export default function Login() {
 }
 
 export const LoginForm = (props: HTMLChakraProps<"form">) => {
-  const [password, setPassword] = React.useState("")
-  const [email, setEmail] = React.useState("")
+  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = React.useState("");
 
-  const [submitting, setSubmitting] = React.useState(false)
+  const [submitting, setSubmitting] = React.useState(false);
 
-  const [error, setError] = React.useState("")
+  const [error, setError] = React.useState("");
   return (
-  <chakra.form
-    onSubmit={(e) => {
-      setSubmitting(true)
-      e.preventDefault();
-      if(email === "") {
-        setError("The email field is required")
-        setSubmitting(false)
-        
-      } else if(password === "") {
-        setError("The password field is required")
-        setSubmitting(false)
-      } else {
-        supabase.auth.signIn({
-          email,
-          password
-        })
-        .then(({ user, error }) => {
-          setSubmitting(true)
-          if(user) {
-            // console.log(user)
-            // req.flash("success_msg", "Welcome Back")
-            // res.redirect('/admin')
-            console.log("Logged in")
-            setSubmitting(false)
-            window.location.url = "https://dashboard.fxnetwork.space"
-          } else if(error){
-            // errors.push({msg: error.message.split(" ")[0] == "request" ? "Network Error Try Later!" : error.message})
-            // res.show('routes/signin', {layout: false, errors})
-            setError(error.message)
-            setSubmitting(false)
-          }
-        }).catch(e => {
-          setError("internal Server Error")
-          setSubmitting(false)
-          console.log(e)
-        })
-      }
-    }}
-    {...props}
-  >
-    <Stack spacing="6">
-      <FormControl id="email">
-        <FormLabel>Email address</FormLabel>
-        <Input vale={email} onChange={(e) => setEmail(e.target.value)} name="email" type="email" autoComplete="email" required />
-      </FormControl>
-      <PasswordField vale={password} onChange={(e) => setPassword(e.target.value)} forgotField name="Password" />
+    <chakra.form
+      onSubmit={(e) => {
+        setSubmitting(true);
+        e.preventDefault();
+        if (email === "") {
+          setError("The email field is required");
+          setSubmitting(false);
+        } else if (password === "") {
+          setError("The password field is required");
+          setSubmitting(false);
+        } else {
+          supabase.auth
+            .signIn({
+              email,
+              password,
+            })
+            .then(({ user, error }) => {
+              setSubmitting(true);
+              if (user) {
+                // console.log(user)
+                // req.flash("success_msg", "Welcome Back")
+                // res.redirect('/admin')
+                console.log("Logged in");
+                setSubmitting(false);
+                window.location.href = "https://dashboard.fxnetwork.space";
+              } else if (error) {
+                // errors.push({msg: error.message.split(" ")[0] == "request" ? "Network Error Try Later!" : error.message})
+                // res.show('routes/signin', {layout: false, errors})
+                setError(error.message);
+                setSubmitting(false);
+              }
+            })
+            .catch((e) => {
+              setError("internal Server Error");
+              setSubmitting(false);
+              console.log(e);
+            });
+        }
+      }}
+      {...props}
+    >
+      <Stack spacing="6">
+        <FormControl id="email">
+          <FormLabel>Email address</FormLabel>
+          <Input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+          />
+        </FormControl>
+        <PasswordField
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          forgotField
+          name="Password"
+        />
 
-      {error !== "" && (
-        <Box my="15px">
-          <ShowAlert status="error" body={error} />
-        </Box>
-      )}
+        {error !== "" && (
+          <Box my="15px">
+            <ShowAlert status="error" body={error} />
+          </Box>
+        )}
 
-      <Button
-        type="submit"
+        <Button
+          type="submit"
           isLoading={submitting}
           loadingText="Logging in"
           colorScheme="blue"
         >
           Sign in
         </Button>
-    </Stack>
-  </chakra.form>
-)
+      </Stack>
+    </chakra.form>
+  );
 };
 
 export async function getServerSideProps() {
@@ -148,14 +161,15 @@ export async function getServerSideProps() {
   };
 }
 
-
 const ShowAlert = (props) => {
   return (
     <Alert status={props.status} variant={"left-accent"}>
-  <AlertIcon />
-  {/* <AlertTitle mr={2}>{props.title}</AlertTitle> */}
-  <AlertDescription>{props.body}</AlertDescription>
-  {props.closeBtn && (<CloseButton position="absolute" right="8px" top="8px" />)}
-</Alert>
-  )
-}
+      <AlertIcon />
+      {/* <AlertTitle mr={2}>{props.title}</AlertTitle> */}
+      <AlertDescription>{props.body}</AlertDescription>
+      {props.closeBtn && (
+        <CloseButton position="absolute" right="8px" top="8px" />
+      )}
+    </Alert>
+  );
+};
