@@ -15,8 +15,12 @@ import { useEffect, useState } from "react";
 import { Container } from "../components/Container";
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
 import Banner from "../components/base/Banner";
+
 import Feature1 from "../components/base/Feature1";
 import Feature2 from "../components/base/Feature2";
+import Feature3 from "../components/base/Feature3";
+import Feature4 from "../components/base/Feature4";
+
 import Pricing from "../components/base/Pricing";
 import Testimony from "../components/base/Testimony";
 import Footer from "../components/base/Footer";
@@ -48,8 +52,10 @@ const Index = () => {
     <>
       <Banner />
       <Feature1 />
+      <Feature3 />
       <Feature2 />
       <Pricing />
+      <Feature4 />
       <Testimony />
       {popUp && (
         <Faker text={`Someone from ${country} just earned ${balance}`} />

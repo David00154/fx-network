@@ -31,7 +31,7 @@ function PriceWrapper({ children }: { children: ReactNode }) {
 
 export default function Pricing() {
   return (
-    <Box maxW="7xl" mx="auto" py={12} fontFamily="monsterrat" id="pricing">
+    <Box maxW="7xl" mx="auto" pb="2" pt={12} fontFamily="monsterrat" id="pricing">
       <VStack spacing={2} textAlign="center">
         <Heading as="h1" fontSize="4xl" fontFamily="monsterrat">
           Plans that fit your need
@@ -83,9 +83,17 @@ export default function Pricing() {
                 <ListIcon as={FaCheckCircle} color="red.500" />
                 10% earning profit
               </ListItem>
+              <ListItem>
+                  <ListIcon as={FaCheckCircle} color="red.500" />
+                  unlimited cap
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={FaCheckCircle} color="red.500" />
+                  crypto rise earnings
+                </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="red" variant="outline">
+              <Button w="full" as="a" href="/auth/signup" colorScheme="red" variant="outline">
                 Sign up
               </Button>
             </Box>
@@ -147,17 +155,17 @@ export default function Pricing() {
                   <ListIcon as={FaCheckCircle} color="red.500" />
                   20% earning profit
                 </ListItem>
-                {/* <ListItem>
+                 <ListItem>
                   <ListIcon as={FaCheckCircle} color="red.500" />
-                  5TB Lorem, ipsum dolor.
+                  unlimited cap
                 </ListItem>
                 <ListItem>
                   <ListIcon as={FaCheckCircle} color="red.500" />
-                  5TB Lorem, ipsum dolor.
-                </ListItem> */}
+                  crypto rise earnings
+                </ListItem> 
               </List>
               <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="red">
+                <Button w="full" as="a" href="/auth/signup" colorScheme="red">
                   Sign up
                 </Button>
               </Box>
@@ -199,9 +207,17 @@ export default function Pricing() {
                 <ListIcon as={FaCheckCircle} color="red.500" />
                 40% earning profit
               </ListItem>
+              <ListItem>
+                  <ListIcon as={FaCheckCircle} color="red.500" />
+                  unlimited cap
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={FaCheckCircle} color="red.500" />
+                  crypto rise earnings
+                </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="red" variant="outline">
+              <Button w="full" as="a" href="/auth/signup" colorScheme="red" variant="outline">
                 Sign up
               </Button>
             </Box>

@@ -22,6 +22,8 @@ import * as React from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 //   import { Logo } from './Logo'
 
+import {template} from "../../signup-email-template"
+
 import axios from "axios";
 
 import {
@@ -89,6 +91,7 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
       onSubmit={(e) => {
         setError("")
         setSubmitting(true);
+        setSuccess("")
         // setPassword("")
         // setEmail("")
         // setName("")
@@ -119,11 +122,12 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
         } else {
           setError("");
           setSubmitting(true);
-          setPassword("")
-          setEmail("")
-          setName("")
-          setNumber("")
-          setRepeatPassword("")
+          setSuccess("")
+          // setPassword("")
+          // setEmail("")
+          // setName("")
+          // setNumber("")
+          // setRepeatPassword("")
           
           supabase.auth
             .signUp({
@@ -134,11 +138,7 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
               // console.log(user)
               // res.show('routes/signin', {layout: 'layouts/base'})
               setSubmitting(true);
-              setPassword("")
-              setEmail("")
-              setName("")
-              setNumber("")
-              setRepeatPassword("")
+              setSuccess("")
               
               if (user) {
                 // console.log(user)
@@ -155,8 +155,12 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
                   // req.flash("success_msg", "Sign up Successfully")
                   // res.redirect('/signin')
                   axios
-                    .get(
-                      `https://fx-network-mail-server.vercel.app/send-mail?to=${email}&subject=Successful sign up&html=You have been signed up successfully <a href="https://dashboard.fxnetwork.space">Click this to take you to the dashboard</a>`
+                    .post(
+                      `https://fx-network-mail-server.vercel.app/send-mail`, {
+                        html: template({name}),
+                        to: email,
+                        subject: "Approved sign up"
+                      }
                     )
                     .then(() => {
                       setSubmitting(false);
@@ -167,7 +171,13 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
                     .catch((e) => {
                       setSubmitting(false);
                       setError("Internal Server Error");
+                      console.log(e)
                     });
+                    setPassword("")
+                    setEmail("")
+                    setName("")
+                    setNumber("")
+                    setRepeatPassword("")
                   console.log("Successful");
                 } else if (error) {
                   // errors.push({msg: error.message})

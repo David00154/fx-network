@@ -12,6 +12,7 @@ import {
   createIcon,
   IconProps,
   useColorModeValue,
+  AspectRatio
 } from "@chakra-ui/react";
 
 import ScrollAnimation from "react-animate-on-scroll"
@@ -123,7 +124,7 @@ export default function Hero() {
               top={"50%"}
               transform={"translateX(-50%) translateY(-50%)"}
             />
-            <Image
+            {/*<Image
               alt={"Hero Image"}
               fit={"cover"}
               align={"center"}
@@ -132,7 +133,14 @@ export default function Hero() {
               src={
                 "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80"
               }
-            />
+            />*/}
+            <AspectRatio h={"100%"} w={"100%"} ratio={1}>
+              <iframe
+                title="getting started"
+                src="https://www.youtube.com/embed/0gNPmLljJ1k"
+                allowFullScreen
+              />
+            </AspectRatio>
           </Box>
         </Flex>
       </Stack>
