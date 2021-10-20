@@ -137,6 +137,7 @@ export default function UpdateUser() {
 	const [mail, setEmail] = useState("")
 	const [error, setError] = useState("")
 	const [success, setSuccess] = useState(false)
+	const [userEmail, setUserEmail] = useState("")
 	const [updating, setUpdating] = useState(false)
 
 	const user = supabase.auth.user();
@@ -181,6 +182,9 @@ export default function UpdateUser() {
 		} else if(deposit.trim() == "") {
 			setError("Deposit field is required")
 			setUpdating(false)
+		} else if(userEmail.trim() == "") {
+			setError("User Email field is required")
+			setUpdating(false)
 		} else if(userId.trim() == "") {
 			setError("User Id field is required")
 			setUpdating(false)
@@ -204,12 +208,13 @@ export default function UpdateUser() {
 			  		axios.post("https://fx-network-mail-server.vercel.app/send-mail", {
 			  			subject: "Account Credited",
 			  			html: html(mail),
-			  			to: user.email
+			  			to: userEmail
 			  		})
 			  		.then(() => {
 			  			setUpdating(false)
 				  		setError("")
 				  		setEmail("")
+				  		setUserEmail("")
 				  		setBalance("")
 				  		setUserId("")
 				  		setWithdrawal("")
@@ -254,6 +259,14 @@ export default function UpdateUser() {
 		          <FormLabel>Enter userId</FormLabel>
 		          <Input
 		          	value={userId} onChange={(e) => setUserId(e.target.value)}
+		            _placeholder={{ color: 'gray.500' }}
+		            type="text"
+		          />
+		        </FormControl>
+		        <FormControl id="address" isRequired>
+		          <FormLabel>Enter user email</FormLabel>
+		          <Input
+		          	value={userEmail} onChange={(e) => setUserEmail(e.target.value)}
 		            _placeholder={{ color: 'gray.500' }}
 		            type="text"
 		          />
