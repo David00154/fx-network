@@ -28,25 +28,7 @@ export default function _Deposit() {
 		</AdminLayout>
 	)
 	//
-}
-//
-// if(supabase.auth.user() === null) {
-	// 	return {
-	// 		redirect: {
-	// 			destination: '/auth/login',
-	// 			statusCode: 301
-	// 		}
-	// 	}
-	// } 
 export async function getServerSideProps() {
-	if(supabase.auth.user() == null) {
-		return {
-			redirect: {
-				destination: '/auth/login',
-				permanent: false
-			}
-		}
-	} 
 	return {
 		props: {
 			title: "Deposit"
