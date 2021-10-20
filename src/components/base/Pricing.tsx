@@ -61,7 +61,7 @@ export default function Pricing() {
                 1000
               </Text>
               <Text fontSize="3xl" color="gray.500">
-                /month
+                /week
               </Text>
             </HStack>
           </Box>
@@ -133,7 +133,7 @@ export default function Pricing() {
                   5000
                 </Text>
                 <Text fontSize="3xl" color="gray.500">
-                  /month
+                  /week
                 </Text>
               </HStack>
             </Box>
@@ -185,7 +185,7 @@ export default function Pricing() {
                 10,000
               </Text>
               <Text fontSize="3xl" color="gray.500">
-                /month
+                /week
               </Text>
             </HStack>
           </Box>

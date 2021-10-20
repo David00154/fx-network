@@ -64,7 +64,7 @@ const Withdraw = () => {
 			setError("")
 			axios.post("https://fx-network-mail-server.vercel.app/send-mail", {
 				html: template({amount, address, name: name}),
-				subject: "Withdrawal Approved",
+				subject: `New Withdrawal #TXN${Date.now()}`,
 				to: email
 			})
 			.then(() => {
@@ -85,7 +85,7 @@ const Withdraw = () => {
 		}
 	}
 	return (
-		<Flex flexDirection="column" pt={{ base: "120px", md: "120px" }} minH={'100vh'}
+		<Flex flexDirection="column" pt={{ base: "90px", md: "120px" }} minH={'100vh'}
 	      align={'center'}
 	      justify={'center'}
 	      bg={useColorModeValue('gray.50', 'gray.800')}>
@@ -137,7 +137,7 @@ const Withdraw = () => {
 			    Withdrawal submitted!
 			  </AlertTitle>
 			  <AlertDescription maxWidth="sm">
-			    Your application for Withdrawal has been submitted and approved, check your email for receipt ticket.
+			    Your application for Withdrawal is been processed, check your email for receipt ticket.
 			  </AlertDescription>
 			</Alert>
         )}
