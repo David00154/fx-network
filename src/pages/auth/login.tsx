@@ -98,7 +98,7 @@ export const LoginForm = (props: HTMLChakraProps<"form">) => {
                 // res.redirect('/admin')
                 console.log("Logged in");
                 setSubmitting(false);
-                window.location.href = "https://dashboard.fxnetwork.space";
+                window.location.href = window.location.origin + '/dashboard';
               } else if (error) {
                 // errors.push({msg: error.message.split(" ")[0] == "request" ? "Network Error Try Later!" : error.message})
                 // res.show('routes/signin', {layout: false, errors})
@@ -107,7 +107,7 @@ export const LoginForm = (props: HTMLChakraProps<"form">) => {
               }
             })
             .catch((e) => {
-              setError("internal Server Error");
+              setError("Internal Server Error");
               setSubmitting(false);
               console.log(e);
             });

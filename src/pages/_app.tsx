@@ -1,9 +1,10 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
-import theme from "../theme";
+import theme from "../theme/theme.tsx";
 import { AppProps } from "next/app";
 import { useEffect } from "react";
 import SmoothScroll from "../components/SmoothScroll";
+import ProvideAuth from "../auth"
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -44,6 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}}>
         </script> */}
       </Head>
+      <ProvideAuth>
       <ChakraProvider resetCSS theme={theme}>
         {/* <SmoothScroll> */}
         <div style={{ width: "100%" }}>
@@ -51,6 +53,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </div>
         {/* </SmoothScroll> */}
       </ChakraProvider>
+      </ProvideAuth>
       {/* <body defer dangerouslySetInnerHTML={{__html: `
         console.log(AOS)
           AOS.init();

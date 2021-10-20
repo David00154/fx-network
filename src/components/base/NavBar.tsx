@@ -107,7 +107,7 @@ const MenuLinks = ({ isOpen }) => {
           textTransform="uppercase"
           fontWeight="600"
           fontSize="13.3px"
-          to="https://dashboard.fxnetwork.space"
+          to="/dashboard"
         >
           Dashboard{" "}
         </MenuItem>
