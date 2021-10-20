@@ -4,13 +4,20 @@ import theme from "../theme/theme.tsx";
 import { AppProps } from "next/app";
 import { useEffect } from "react";
 import SmoothScroll from "../components/SmoothScroll";
+import Script from "next/script"
 import ProvideAuth from "../auth"
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // localStorage.setItem("chakra-ui-color-mode", "dark");
     // console.log(AOS)
-    // AOS.init();
+        // window.addEventListener("load", () => {
+        //   AOS.init({
+        //   duration: 1000,
+        //   easing: 'ease-in',
+        //   once: false,
+        // })
+        // })
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("/sw.js").then(
@@ -32,10 +39,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <link
-          href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          href="/aos/aos.css"
           rel="stylesheet"
         />
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        {/*<script src="/aos/aos.js" defer></script>*/}
         <title>
           {pageProps.title ? pageProps.title + "  |" : ""} Fx Network
         </title>
@@ -59,6 +66,18 @@ function MyApp({ Component, pageProps }: AppProps) {
           AOS.init();
         `}}>
         </body> */}
+        <Script strategy="beforeInteractive" src="/aos/aos.js" async defer />
+        <Script async defer>
+        {`
+          window.addEventListener("load", () => {
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in',
+              })
+              console.log("Mounted Aos")
+                })
+        `}
+      </Script>
     </>
   );
 }

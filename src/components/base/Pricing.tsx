@@ -31,7 +31,7 @@ function PriceWrapper({ children }: { children: ReactNode }) {
 
 export default function Pricing() {
   return (
-    <Box maxW="7xl" mx="auto" pb="2" pt={12} fontFamily="monsterrat" id="pricing">
+    <Box maxW="7xl" mx="auto" pb="2" pt={12} fontFamily="monsterrat" id="pricing" data-aos="zoom-out-down">
       <VStack spacing={2} textAlign="center">
         <Heading as="h1" fontSize="4xl" fontFamily="monsterrat">
           Plans that fit your need

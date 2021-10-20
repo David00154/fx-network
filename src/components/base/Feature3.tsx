@@ -32,7 +32,7 @@ const features = [
 ]
 export default function Feature3() {
   return (
-    <Box p={4}>
+    <Box p={4} data-aos="zoom-in-right">
       <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
         <Heading fontSize={'3xl'}>Create your cryptocurrency portfolio today</Heading>
         <Text color={'gray.600'} fontSize={'xl'}>

@@ -51,7 +51,7 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
 
 export default function Feature1() {
   return (
-    <Container p={3} maxW="7xl">
+    <Container p={3} maxW="7xl" data-aos="zoom-in-down">
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         {FeatureItems.map(({ title, icon, text }, i) => {
           return <Feature icon={icon} title={title} key={i} text={text} />;

@@ -139,7 +139,7 @@ function TestmonialCard(props: TestimonialCardProps) {
 
 export default function Testimony() {
   return (
-    <Container maxW="7xl" mx="auto" id="testimony">
+    <Container maxW="7xl" mx="auto" id="testimony" data-aos="zoom-out-left">
       <Flex
         textAlign={"center"}
         pt={10}

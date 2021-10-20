@@ -26,8 +26,8 @@ export default function Hero() {
         py={{ base: 20, md: 28 }}
         direction={{ base: "column", md: "row" }}
       >
-      {/* <ScrollAnimation animateIn="fadeIn"> */}
-        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+      {/* //<ScrollAnimation animateIn="fadeIn"> */}
+        <Stack data-aos="fade-right" data-aos-delay="500" flex={1} spacing={{ base: 5, md: 10 }}>
           <Heading
             lineHeight={1.1}
             fontWeight={600}
@@ -35,6 +35,7 @@ export default function Hero() {
           >
             <Text
               as={"span"}
+              display={"inline-block"}
               position={"relative"}
               _after={{
                 content: "''",
@@ -94,6 +95,8 @@ export default function Hero() {
           align={"center"}
           position={"relative"}
           w={"full"}
+          data-aos="fade-left" 
+          data-aos-delay="600"
         >
           <Blob
             w={"150%"}

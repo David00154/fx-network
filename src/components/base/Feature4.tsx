@@ -11,7 +11,7 @@ import {
 
 export default function Feature4() {
   return (
-    <Box bg={'gray.800'} position={'relative'}>
+    <Box bg={'gray.800'} position={'relative'} data-aos="zoom-in-right">
       <Flex
         flex={1}
         zIndex={0}

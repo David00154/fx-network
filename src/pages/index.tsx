@@ -8,6 +8,7 @@ import {
   Alert,
   AlertIcon,
 } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { CheckCircleIcon, LinkIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
@@ -45,6 +46,8 @@ const Index = () => {
     }, 17555);
   }, []);
 
+  // const
+
   if (!showChild) {
     return null;
   }
@@ -72,17 +75,9 @@ const Faker = ({ text }) => {
         bottom: "16px",
         left: "0",
         position: "fixed",
-        // color: "black",
         padding: "17px",
         margin: "2rem 1rem",
-        // --tw-bg-opacity: 1
-        // backgroundColor: "#e8e8e8",
         fontStyle: "normal",
-        // fontWeight: {500},
-        // fontSize: "14px",
-        // borderLeftWidth: "4px",
-        // borderColor: "#cc1616",
-        // borderLeftStyle: "solid",
       }}
     >
       <Alert status="info" variant="solid" fontSize="md">
@@ -93,14 +88,5 @@ const Faker = ({ text }) => {
   );
 };
 
-// setInterval(() => {
-//   // $("#country")[0].textContent = faker.address.country();
-//   // $("#balance")[0].textContent =
-//   //   "$" + faker.finance.amount().split(".").join(",") + 0;
-//   // $("#pop-up")[0].classList.toggle("hidden");
-//   // setTimeout(() => {
-//   //   $("#pop-up")[0].classList.toggle("hidden");
-//   // }, 9000);
-// }, 17555);
 
 export default Index;

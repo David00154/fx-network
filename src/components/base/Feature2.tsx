@@ -180,7 +180,7 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
 
 export default function Feature2() {
   return (
-    <Container maxW={"7xl"} py={12}>
+    <Container maxW={"7xl"} py={12} data-aos="zoom-in-up">
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Stack spacing={4}>
           <Text
