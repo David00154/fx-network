@@ -42,6 +42,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="/aos/aos.css"
           rel="stylesheet"
         />
+        <link
+          href="/custom.css"
+          rel="stylesheet"
+        />
         {/*<script src="/aos/aos.js" defer></script>*/}
         <title>
           {pageProps.title ? pageProps.title + "  |" : ""} Fx Network
