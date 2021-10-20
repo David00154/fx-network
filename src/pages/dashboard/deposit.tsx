@@ -28,6 +28,8 @@ export default function _Deposit() {
 		</AdminLayout>
 	)
 	//
+}
+//
 export async function getServerSideProps() {
 	return {
 		props: {

@@ -6,9 +6,32 @@ import RTLPage from "./views/RTL/RTLPage.jsx";
 import Profile from "./views/Dashboard/Profile.jsx";
 import Deposit from "./views/Dashboard/Deposit.jsx";
 import Withdraw from "./views/Dashboard/Withdraw.jsx";
+import {supabase} from "./database"
 // import SignIn from "./views/Pages/SignIn.jsx";
 // import SignUp from "./views/Pages/SignUp.jsx";
 //
+//
+// const isAdmin = () => {
+//   const user = supabase.auth.user()
+//   supabase
+//     .from('Profile')
+//     .select('*')
+//     .eq("user_id", user.id)
+//     .then(({data: Profile, error}) => {
+//       console.log(error)
+//       if(error) {
+//         alert(`Internal Server Error ${error.message}`)
+//         return "false"
+//       } else if(Profile[0]) {
+//         console.log(Profile[0])
+//         return "true"
+//       }
+//     })
+//     .catch(e => {
+//       console.log(e)
+//     })
+// }
+// console.log(isAdmin())
 import {
   HomeIcon,
   StatsIcon,
@@ -54,46 +77,7 @@ var dashRoutes = [
     component: Withdraw,
     layout: "/dashboard"
   },
-  // {
-  //   path: "/profile",
-  //   name: "Profile",
-  //   rtlName: "",
-  //   icon: <PersonIcon color="inherit" />,
-  //   component: Profile,
-  //   layout: "/dashboard"
-  // },
-  // {
-  //   path: "/tables",
-  //   name: "Tables",
-  //   rtlName: "لوحة القيادة",
-  //   icon: <StatsIcon color="inherit" />,
-  //   component: Tables,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/billing",
-  //   name: "Billing",
-  //   rtlName: "لوحة القيادة",
-  //   icon: <CreditIcon color="inherit" />,
-  //   component: Billing,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/rtl-support-page",
-  //   name: "RTL",
-  //   rtlName: "آرتيإل",
-  //   icon: <SupportIcon color="inherit" />,
-  //   component: RTLPage,
-  //   layout: "/rtl",
-  // },
-  // {
-  //   path: "/d",
-  //   name: "Text",
-  //   rtlName: "آرتيإل",
-  //   icon: <SupportIcon color="inherit" />,
-  //   component: () => <><h1>Pap</h1></>,
-  //   layout: "/rtl",
-  // },
+  
   {
     name: "ADMIN",
     category: "account",
@@ -101,10 +85,10 @@ var dashRoutes = [
     state: "pageCollapse",
     views: [
       {
-        path: "/profile",
-        name: "Profile",
+        path: "/update-user",
+        name: "Update user",
         rtlName: "لوحة القيادة",
-        icon: <PersonIcon color="inherit" />,
+        icon: () => <></>,
         secondaryNavbar: true,
         component: Profile,
         layout: "/admin",
