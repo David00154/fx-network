@@ -68,11 +68,31 @@ const Withdraw = () => {
 				to: email
 			})
 			.then(() => {
-				setSubmitting(false)
-				setSuccess(true)
-				setError("")
-				setAmount("")
-				setAddress("")
+				// setSubmitting(false)
+				// setSuccess(true)
+				// setError("")
+				// setAmount("")
+				// setAddress("")
+				// .update({ "tracking-stage": "stage1" })
+				supabase
+			  .from('Profile')
+			  .update({ "tracking-stage": "stage1" })
+			  .eq('user_id', user.id)
+			  .then(({data, error}) => {
+			  	if(error) {
+			  		setUpdating(false)
+			  		setError(error.message)
+			  	} else {
+			  		setSubmitting(false)
+						setSuccess(true)
+						setError("")
+						setAmount("")
+						setAddress("")
+			  	}
+			  }).catch(e => {
+			  	setUpdating(false)
+			  	setError("Internal Server Error")
+			  })
 			})
 			.catch((e) => {
 				console.log(e)
