@@ -38,10 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link
-          href="/aos/aos.css"
-          rel="stylesheet"
-        />
+        
         <link
           href="/custom.css"
           rel="stylesheet"
@@ -59,7 +56,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ProvideAuth>
       <ChakraProvider resetCSS theme={theme}>
         {/* <SmoothScroll> */}
-        <div style={{ width: "100%" }}>
+        <div>
           <Component {...pageProps} />
         </div>
         {/* </SmoothScroll> */}
@@ -70,14 +67,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           AOS.init();
         `}}>
         </body> */}
-        <Script strategy="beforeInteractive" src="/aos/aos.js" async defer />
+       {/* <Script strategy="beforeInteractive" src="/aos/aos.js" async defer />*/}
         <Script async defer>
         {`
           window.addEventListener("load", () => {
-            AOS.init({
-                duration: 1000,
-                easing: 'ease-in',
-              })
+           
               console.log("Mounted Aos")
                 })
         `}
