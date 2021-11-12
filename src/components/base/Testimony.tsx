@@ -17,7 +17,7 @@ const testimonials = [
     fx network was saying and I was about to pull out all my
     money but i felt confident keep staying in because i have a
     proffessional guiding me so I made $50, 00in two months thanks
-    to etoro-trade I really needed that ”`,
+    to fxnetwork I really needed that ”`,
     avatar:
       "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
   },
@@ -25,7 +25,7 @@ const testimonials = [
     name: "Hannah Lissem",
     role: "Entrepreneur",
     content: `“ My mind in blown away from the value in this trade group.
-    It's helped me make way less risky decisions thay by myself I
+    It's helped me make way less risky decisions than by myself I
     would have been making. Highly recomended joining if you
     wanted to lower your risk if you are investing in crypto. ”`,
     avatar:
