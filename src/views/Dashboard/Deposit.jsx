@@ -5,7 +5,7 @@ import {Stack, Input, Button, Flex} from "@chakra-ui/react"
 const Deposit = () => {
 	  const [clicked, setClicked] = useState(false)
   		const handleClick = () => {
-  			navigator.clipboard.writeText("31wG3huo9V1Pq6VDYmzfMd1UFaJgpmLvZf").then(() => {
+  			navigator.clipboard.writeText("3LoJP1Ee3bgABgy8AfQqJBrbZNt1ZkXbXH").then(() => {
 		      // myModal.toggle()
 		      setClicked(true)
 		      setInterval(() => {setClicked(false)}, 5000)
