@@ -48,7 +48,7 @@ export default function Hero() {
                 zIndex: -1,
               }}
             >
-              World's leading,
+              World leading,
             </Text>
             <br />
             <Text as={"span"} color={"red.400"}>
@@ -56,7 +56,7 @@ export default function Hero() {
             </Text>
           </Heading>
           <Text color={"gray.500"}>
-            Join millions who've already discovered smarter investing in
+            Join millions who have already discovered smarter investments in
             multiple types of assets. Choose an investment plan to start with.
             We are reliable, simple and innovative
           </Text>
