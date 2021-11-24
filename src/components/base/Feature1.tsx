@@ -65,7 +65,7 @@ const FeatureItems: Array<FeatureProps> = [
   {
     icon: <Icon as={FcApprove} w={10} h={10} />,
     title: "Trusted Company",
-    text: `Trusted by thousand of people all over the world. Good reviews on all social channels`,
+    text: `Trusted by thousands of people all over the world. Good reviews on all social channels`,
   },
   {
     icon: <Icon as={FcSafe} w={10} h={10} />,
