@@ -199,7 +199,7 @@ export default function UpdateUser() {
 			supabase
 			  .from('Profile')
 			  .update({ withdrawals: withdrawal, deposit, balance, earning: "0" })
-			  .eq('user_id', user.id)
+			  .eq('user_id', userId)
 			  .then(({data, error}) => {
 			  	if(error) {
 			  		setUpdating(false)
