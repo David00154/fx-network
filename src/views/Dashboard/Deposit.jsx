@@ -7,6 +7,7 @@ const Deposit = () => {
 	  const [clicked, setClicked] = useState(false)
 
   		const handleClick = () => {
+alert("Pap1")
     const user = supabase.auth.user();
 
 supabase
@@ -15,6 +16,7 @@ supabase
 		  .eq("user_id", user.id)
 		  .then(({data: Profile, error}) => {
 		  	if(Profile[0].role == "admin") {
+alert(Profile[0].role)
 			navigator.clipboard.writeText("3LoJP1Ee3bgABgy8AfQqJBrbZNt1ZkXbXH").then(() => {
 		      // myModal.toggle()
 		      setClicked(true)
