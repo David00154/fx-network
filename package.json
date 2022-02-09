@@ -21,7 +21,7 @@
     "framer-motion": "^4.0.3",
     "match-sorter": "^6.3.1",
     "moment": "^2.29.1",
-    "next": "latest",
+    "next": "^11.0.1",
     "nouislider": "^15.5.0",
     "react": "^17.0.2",
     "react-animate-on-scroll": "^2.1.5",

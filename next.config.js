@@ -6,4 +6,6 @@ module.exports = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  swcMinify: true,
+  // "presets": ["next/babel"]
 }
