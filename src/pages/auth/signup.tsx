@@ -154,30 +154,38 @@ export const SignupForm = (props: HTMLChakraProps<"form">) => {
                   // console.log(data)
                   // req.flash("success_msg", "Sign up Successfully")
                   // res.redirect('/signin')
-                  axios
-                    .post(
-                      `https://fx-network-mail-server.vercel.app/send-mail`, {
-                        html: template({name}),
-                        to: email,
-                        subject: "Approved sign up"
-                      }
-                    )
-                    .then(() => {
-                      setSubmitting(false);
-                      setSuccess(
-                        "Thanks for registering, now check your email to complete the process"
+//                   axios
+//                     .post(
+//                       `https://fx-network-mail-server.vercel.app/send-mail`, {
+//                         html: template({name}),
+//                         to: email,
+//                         subject: "Approved sign up"
+//                       }
+//                     )
+//                     .then(() => {
+//                       setSubmitting(false);
+//                       setSuccess(
+//                         "Thanks for registering, now check your email to complete the process"
+//                       );
+//                     })
+//                     .catch((e) => {
+//                       setSubmitting(false);
+//                       setError("Internal Server Error");
+//                       console.log(e)
+//                     });
+                    setSubmitting(false);
+                    setSuccess(
+                        "Thank you for registering."
                       );
-                    })
-                    .catch((e) => {
-                      setSubmitting(false);
-                      setError("Internal Server Error");
-                      console.log(e)
-                    });
+                     setSuccess(
+                        "Redirecting to login ..."
+                      );
                     setPassword("")
                     setEmail("")
                     setName("")
                     setNumber("")
                     setRepeatPassword("")
+                  setTimeout(() => window.location.href = "https://fxnetwork.space/auth/login", 2800)
                   console.log("Successful");
                 } else if (error) {
                   // errors.push({msg: error.message})
