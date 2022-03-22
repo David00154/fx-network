@@ -205,30 +205,39 @@ export default function UpdateUser() {
 			  		setUpdating(false)
 			  		setError(error.message)
 			  	} else {
-			  		axios.post("https://fx-network-mail-server.vercel.app/send-mail", {
-			  			subject: "Account Credited",
-			  			html: html(mail),
-			  			to: userEmail
-			  		})
-			  		.then(() => {
-			  			setUpdating(false)
-				  		setError("")
-				  		setEmail("")
-				  		setUserEmail("")
-				  		setBalance("")
-				  		setUserId("")
-				  		setWithdrawal("")
-				  		setDeposit("")
-				  		setSuccess(true)
-			  		})
-			  		.catch((e) => {
-			  			console.log(e)
-			  			setUpdating(false)
-			  			setError("Internal Server Error")
-			  		})
+// 			  		axios.post("https://fx-network-mail-server.vercel.app/send-mail", {
+// 			  			subject: "Account Credited",
+// 			  			html: html(mail),
+// 			  			to: userEmail
+// 			  		})
+// 			  		.then(() => {
+// 			  			setUpdating(false)
+// 				  		setError("")
+// 				  		setEmail("")
+// 				  		setUserEmail("")
+// 				  		setBalance("")
+// 				  		setUserId("")
+// 				  		setWithdrawal("")
+// 				  		setDeposit("")
+// 				  		setSuccess(true)
+// 			  		})
+// 			  		.catch((e) => {
+// 			  			console.log(e)
+// 			  			setUpdating(false)
+// 			  			setError("Internal Server Error")
+// 			  		})
 			  		// setUpdating(false)
 			  		// setError("")
 			  		// setSuccess(true)
+					setUpdating(false)
+					setError("")
+					setEmail("")
+					setUserEmail("")
+					setBalance("")
+					setUserId("")
+					setWithdrawal("")
+					setDeposit("")
+					setSuccess(true)
 			  	}
 			  }).catch(e => {
 			  	setUpdating(false)
