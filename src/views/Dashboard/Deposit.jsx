@@ -8,7 +8,7 @@ const Deposit = () => {
 
   		const handleClick = () => {
 
-navigator.clipboard.writeText("3LoJP1Ee3bgABgy8AfQqJBrbZNt1ZkXbXH").then(() => {
+navigator.clipboard.writeText("138Qp8AuGMiaznizSiQxHEBWMdxbRs8TTv").then(() => {
 		      // myModal.toggle()
 		      setClicked(true)
 		      setInterval(() => {setClicked(false)}, 5000)
